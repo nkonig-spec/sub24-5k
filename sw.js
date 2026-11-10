@@ -1,5 +1,5 @@
 // Change this number whenever you upload a new version, e.g. "v2", "v3".
-const VERSION = "v1";
+const VERSION = "v3";
 const CACHE = "sub24-" + VERSION;
 const SHELL = ["./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png", "apple-touch-icon.png"];
 
