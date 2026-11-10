@@ -1,0 +1,16 @@
+{
+  "name": "Sub-24 5K",
+  "short_name": "Sub-24",
+  "description": "Nate's 12-week sub-24 5K training plan with treadmill timer, abs and progress tracking.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#EEF2F6",
+  "theme_color": "#2356A8",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
