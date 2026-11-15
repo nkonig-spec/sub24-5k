@@ -258,8 +258,9 @@ tr.chg td:nth-child(2){color:var(--track);font-weight:700}
 .t-mot.show{opacity:1;transform:scale(1)}
 .t-mot:empty{display:none}
 .t-opts{flex-wrap:wrap;row-gap:8px}
-.nav{grid-template-columns:repeat(5,1fr)}
-@media (min-width:861px){ .nav{width:540px} }
+.nav{grid-template-columns:repeat(6,1fr)}
+.nav a span{font-size:11px}
+@media (min-width:861px){ .nav{width:600px} }
 .pf-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .pf-grid .hgt{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .wi-row{display:flex;gap:10px;margin-top:12px}
@@ -531,6 +532,67 @@ tr.chg td:nth-child(2){color:var(--track);font-weight:700}
 .p-runner svg{width:100%;height:auto;display:block}
 @keyframes runAcross{from{transform:translateX(0)}to{transform:translateX(calc(100vw + 120px))}}
 .pacer>*:not(.p-sky){position:relative;z-index:1}
+
+/* Food tab */
+.f-top{display:grid;justify-items:center;gap:12px}
+.f-ringwrap{position:relative;width:min(62vw,230px);aspect-ratio:1}
+.f-ring{width:100%;height:100%;display:block}
+.frb{fill:none;stroke:var(--surface-2);stroke-width:16}
+.frf{fill:none;stroke:var(--good);stroke-width:16;stroke-linecap:round;transition:stroke-dasharray .6s ease}
+.frf.over{stroke:var(--warn)}
+.f-ringtxt{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.f-ringtxt b{font-family:var(--display);font-weight:800;font-size:clamp(46px,13vw,60px);line-height:1;font-variant-numeric:tabular-nums}
+.f-ringtxt small{color:var(--muted);font-size:14px}
+.f-sum{display:grid;grid-template-columns:1fr 1fr;width:100%;text-align:center}
+.f-sum b{display:block;font-family:var(--display);font-weight:800;font-size:26px;line-height:1}
+.f-sum small{color:var(--muted);font-size:13px}
+.f-sum div+div{border-left:1px solid var(--line)}
+.f-prot{width:100%}
+.f-protlab{display:flex;justify-content:space-between;font-size:14px;color:var(--muted);margin-bottom:6px}
+.f-protlab b{color:var(--ink)}
+.f-bar{height:10px;border-radius:5px;background:var(--surface-2);overflow:hidden}
+.f-bar i{display:block;height:100%;background:var(--track);border-radius:inherit}
+.f-h{font-weight:800;font-size:26px;margin:0 0 10px}
+.f-plan{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.f-plan li{display:grid;grid-template-columns:82px minmax(0,1fr);gap:12px;padding:12px;border-radius:14px;background:var(--surface-2)}
+.f-plan li.done{opacity:.75}
+.f-pt span{display:block;font-size:12px;color:var(--muted);font-weight:600}
+.f-pt b{font-family:var(--display);font-weight:800;font-size:19px}
+.f-opt p{margin:0;font-size:14px;line-height:1.35}
+.f-cal{color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.f-opt .f-ate{margin-top:8px;padding:8px 14px;font-size:14px}
+.f-opt .f-cal{display:block;margin-top:2px}
+.f-or{display:block;font-size:12px;font-weight:700;color:var(--muted);margin:8px 0;text-transform:uppercase;letter-spacing:.05em}
+.f-note{margin:10px 0 0;font-size:13px}
+.f-search{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--surface-2);font-size:17px}
+.f-res{list-style:none;margin:10px 0 0;padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.f-res li+li{border-top:1px solid var(--line)}
+.f-r{appearance:none;width:100%;display:flex;justify-content:space-between;gap:10px;padding:12px 14px;border:0;background:var(--surface);text-align:left;cursor:pointer;font-weight:600;color:var(--ink)}
+.f-qty{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:0 14px 12px;font-size:14px;color:var(--muted)}
+.f-qty .chip{padding:8px 12px;font-size:17px}
+.f-custom{margin-top:12px}
+.f-log{list-style:none;margin:0;padding:0}
+.f-log li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}
+.f-log li:last-child{border-bottom:0}
+.f-log b{display:block;font-weight:600;line-height:1.3;font-size:15px}
+.f-log small{color:var(--muted);font-size:12px}
+.f-del{padding:7px 10px;font-size:13px}
+.f-est{margin-top:4px}
+.f-estrow{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--line);font-size:15px}
+.f-estrow b{font-variant-numeric:tabular-nums}
+.f-estrow.tot{font-weight:700;border-bottom:0}
+.qrow .qt b{font-size:18px}
+.qt-food .qi{color:var(--good)}
+.qt.over small{color:var(--warn);font-weight:700}
+
+/* shortcut tiles: 2 per row, icon beside text */
+.qrow{grid-auto-flow:row;grid-template-columns:1fr 1fr}
+.qt{display:grid;grid-template-columns:40px minmax(0,1fr);grid-template-rows:auto auto;column-gap:10px;align-items:center;padding:12px}
+.qt .qi{grid-row:1 / span 2;margin:0;height:34px;display:flex;align-items:center;justify-content:center}
+.qt .qi-s{height:26px}
+.qt-abs .qi svg{width:46px;margin-left:-4px}
+.qrow .qt b{font-size:18px}
+.qt small{margin-top:1px}
 </style>
 </head>
 <body>
@@ -538,6 +600,7 @@ tr.chg td:nth-child(2){color:var(--track);font-weight:700}
   <div class="bsd" lang="he" dir="rtl" title="בסיעתא דשמיא" aria-label="בסיעתא דשמיא">בס״ד</div>
   <section class="view" id="view-today" aria-label="Today"></section>
   <section class="view" id="view-plan" aria-label="Plan" hidden></section>
+  <section class="view" id="view-food" aria-label="Food" hidden></section>
   <section class="view" id="view-abs" aria-label="Abs" hidden></section>
   <section class="view" id="view-progress" aria-label="Progress" hidden></section>
   <section class="view" id="view-me" aria-label="Me" hidden></section>
@@ -546,6 +609,7 @@ tr.chg td:nth-child(2){color:var(--track);font-weight:700}
   <a href="#today" data-v="today"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg><span>Today</span></a>
   <a href="#plan" data-v="plan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg><span>Plan</span></a>
   <a href="#abs" data-v="abs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2"/><path d="M5 21l4-6h6l4 6M9 15l3-7 3 7"/></svg><span>Abs</span></a>
+  <a href="#food" data-v="food"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10"/><path d="M17 21V3c-2.5 1.5-3.5 4-3.5 7.5V13h3.5"/></svg><span>Food</span></a>
   <a href="#progress" data-v="progress"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span>Progress</span></a>
   <a href="#me" data-v="me"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span>Me</span></a>
 </nav>
@@ -750,8 +814,10 @@ const today0=()=>{const n=new Date();return new Date(n.getFullYear(),n.getMonth(
 
 /* ---------- State ---------- */
 const LS_KEY="sub24-5k-state";
-let state = {startDate:"2026-11-15", logs:{}};
+let state = {startDate:"2026-11-08", logs:{}};
 try{ const raw=localStorage.getItem(LS_KEY); if(raw) state={...state,...JSON.parse(raw)}; }catch(e){}
+function moveStart(){ if(state.startDate==="2026-11-15"&&!state.startMoved){ state.startDate="2026-11-08"; state.startMoved=true; return true; } return false; }
+if(moveStart()){ try{ localStorage.setItem(LS_KEY,JSON.stringify(state)); }catch(e){} }
 let dbRef=null, saveTimer=null, writing=false, pending=false;
 
 function persist(){
@@ -763,7 +829,7 @@ function persist(){
 async function flush(){
   if(writing){ pending=true; return; }
   writing=true;
-  try{ await dbRef.set({startDate:state.startDate,logs:state.logs,profile:state.profile||{},weights:state.weights||{},trials:state.trials||[]}); setSync("Synced to your account"); }
+  try{ await dbRef.set({startDate:state.startDate,logs:state.logs,profile:state.profile||{},weights:state.weights||{},trials:state.trials||[],food:state.food||{},nutri:state.nutri||{}}); setSync("Synced to your account"); }
   catch(e){ setSync("Saved on this device only"); }
   writing=false;
   if(pending){ pending=false; flush(); }
@@ -779,7 +845,7 @@ var syncText="Saved on this device"; function setSync(t){ syncText=t; const e=do
     if(!id){ setSync("Saved on this device"); return; }
     dbRef = db.doc(`data/users/${id}/sub24`);
     const snap = await dbRef.get();
-    if(snap.exists){ const d=snap.data(); state={...state,...d,logs:{...state.logs,...(d.logs||{})}}; renderAll(); }
+    if(snap.exists){ const d=snap.data(); state={...state,...d,logs:{...state.logs,...(d.logs||{})}}; if(moveStart()) persist(); const t=todayWD(); sel={w:t.w,d:t.d}; renderAll(); }
     setSync("Synced to your account");
   }catch(e){ setSync("Saved on this device"); }
 })();
@@ -1278,7 +1344,7 @@ function makeEasyRun(w,m){ const mph=w<3?5.5:5.7, segs=[W(2,"Warm-up walk"),R(m-
 function bonusMiles(w,d){ const l=state.logs[key(w,d)+"x"]; if(!l?.done) return 0; const v=parseFloat(l.miles); return isNaN(v)?0:v; }
 
 /* ---------- Views ---------- */
-const VIEWS=["today","plan","abs","progress","me"];
+const VIEWS=["today","plan","abs","food","progress","me"];
 function showView(v){
   if(!VIEWS.includes(v)) v="today";
   VIEWS.forEach(x=>{ $("view-"+x).hidden=x!==v; document.querySelector(`.nav [data-v="${x}"]`).setAttribute("aria-current",x===v?"page":"false"); });
@@ -1318,12 +1384,14 @@ function renderTodayView(){
     const tiles=[`<button class="qt qt-abs${absDone?" ok":""}" id="tAbs"><span class="qi">${absSVG("plank")}</span><b>Abs</b><small>${absDone?"✓ Done":"Pick a workout"}</small></button>`];
     if(wiw) tiles.push(`<button class="qt${we?" ok":" due"}" id="tWeigh" aria-expanded="false"><span class="qi qi-s">${ICONS.scale}</span><b>Weigh-in</b><small>${we?`✓ ${we.lb} lb`:`Week ${wiw} due`}</small></button>`);
     else if(!pf.startWeight) tiles.push(`<button class="qt" id="setupGo"><span class="qi qi-s">${ICONS.person}</span><b>Profile</b><small>Set up</small></button>`);
+    { const fl=foodLeftToday(); tiles.unshift(`<button class="qt qt-food${fl<0?" over":""}" id="tFood"><span class="qi qi-s">${FOOD_ICON}</span><b>Food</b><small>${fl<0?`${Math.abs(fl).toLocaleString()} over`:`${fl.toLocaleString()} left`}</small></button>`); }
     tiles.push(`<button class="qt qt-live" id="tPacer"><span class="qi qi-run">${runnerSVG()}</span><b>Live run</b><small>Outdoor pacer</small></button>`);
     html+=`<div class="qrow">${tiles.join("")}</div>${wiw&&!we?`<div class="card wi-pop" id="wiBox" hidden><p class="sub" style="margin:0">End of week ${wiw}. Step on the scale and log it.</p><div class="wi-row"><input id="wiVal" inputmode="decimal" placeholder="Weight in lb" aria-label="Weight in pounds"><button class="btn btn-finish" id="wiSave" data-w="${wiw}">Save</button></div></div>`:""}`;
   }
   if(!tt) html+=`<div class="qrow"><button class="qt qt-live" id="tPacer"><span class="qi qi-run">${runnerSVG()}</span><b>Live run</b><small>Outdoor pacer</small></button></div>`;
   el.innerHTML=html;
   $("tPacer").onclick=()=>openPacer();
+  if($("tFood")) $("tFood").onclick=()=>go("food");
   if(!tt) return;
   const {w,d}=tt;
   el.querySelectorAll(".chip[data-m]").forEach(b=>b.onclick=()=>{ availMin=+b.dataset.m; renderTodayView(); $("fitOut").scrollIntoView({behavior:"smooth",block:"nearest"}); });
@@ -1737,6 +1805,82 @@ const ICONS={
   person:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>`
 };
 
+
+/* ---------- Food: meal plan, food log and calories left ---------- */
+const FOOD_ICON=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7c-2-3-7-2.5-7 3 0 5 3.5 11 7 11s7-6 7-11c0-5.5-5-6-7-3z"/><path d="M12 7c0-2 1-3.5 3-4"/></svg>`;
+const MEAL_PLAN=[
+  {id:"b",time:"8:00 a.m.",name:"Breakfast",opts:[{n:"Medium bagel and 3 large eggs",cal:490,p:30}]},
+  {id:"l",time:"12:30 p.m.",name:"Lunch",opts:[{n:"6 oz grilled chicken, 1½ cups rice, 1 cup green beans, 1 tsp olive oil",cal:665,p:58},{n:"Same lunch with 1 cup rice instead of 1½",cal:565,p:56}]},
+  {id:"s",time:"4:00 p.m.",name:"Snack",opts:[{n:"Apple, 1 cup baby carrots, 3 oz deli turkey",cal:225,p:16}]},
+  {id:"d",time:"7:00 p.m.",name:"Dinner",opts:[{n:"Baked schnitzel (5 oz chicken, ¼ cup breadcrumbs), 250 g roasted potatoes, 1 cup broccoli or green beans, 1 tbsp oil",cal:700,p:50},{n:"6 oz lean steak with the potatoes and veggies",cal:710,p:57}]}
+];
+const FOOD_DB=[
+ ["Bagel, medium",280,11],["Egg, large",72,6],["Toast, 1 slice",80,3],["Oatmeal, 1 cup cooked",160,6],["Cereal with milk, 1 bowl",250,8],["Greek yogurt, nonfat, 6 oz",100,17],["Banana, medium",105,1],["Apple, medium",95,0],["Orange, medium",62,1],["Berries, 1 cup",70,1],["Baby carrots, 1 cup",50,1],
+ ["Chicken breast, 4 oz cooked",185,35],["Deli turkey, 3 oz",90,15],["Steak, lean, 6 oz cooked",330,49],["Salmon, 4 oz cooked",230,25],["Tuna, 1 can in water",120,26],["Ground beef burger patty, 4 oz",290,20],["Schnitzel, 5 oz",380,35],
+ ["Rice, 1 cup cooked",205,4],["Pasta, 1 cup cooked",220,8],["Potatoes, roasted, 250 g",230,5],["Pita, 1 large",165,5],["Hummus, 2 tbsp",70,2],["Falafel, 4 pieces",230,9],["Green beans or broccoli, 1 cup",35,3],["Salad with dressing, side",150,2],["Avocado, half",120,2],
+ ["Peanut butter, 2 tbsp",190,7],["Almonds, 1 oz",165,6],["Cheese, 1 oz slice",110,7],["Protein shake, 1 scoop with water",120,24],["Protein bar",210,20],["Granola bar",190,3],
+ ["Pizza, 1 slice cheese",285,12],["Shawarma wrap",600,35],["Burger, fast food",540,25],["French fries, medium",350,4],["Sushi roll, 8 pieces",300,9],["Turkey sandwich",350,22],["Chicken wrap",450,30],["Bowl of soup",200,8],
+ ["Cookie",150,2],["Chocolate bar, 1.5 oz",220,3],["Ice cream, 1 cup",270,5],["Chips, 1 oz bag",150,2],
+ ["Coffee, black",5,0],["Latte, 16 oz",190,13],["Milk, 1 cup 2%",122,8],["Orange juice, 1 cup",110,2],["Soda, 12 oz",140,0],["Beer, 12 oz",150,1],["Wine, 5 oz glass",125,0],["Olive oil, 1 tbsp",120,0]
+];
+function nutri(){ const n=Object.assign({cal:2100,protein:150,steps:10000},state.nutri||{}); return {cal:n.cal,protein:n.protein,steps:n.steps}; }
+function foodDay(dk){ state.food=state.food||{}; return state.food[dk||toISO(today0())]||[]; }
+function foodTotals(dk){ const it=foodDay(dk); return {cal:it.reduce((a,x)=>a+(+x.cal||0),0),p:it.reduce((a,x)=>a+(+x.p||0),0)}; }
+function foodLeftToday(){ return Math.round(nutri().cal-foodTotals().cal); }
+function addFood(item){ const dk=toISO(today0()); state.food=state.food||{}; (state.food[dk]=state.food[dk]||[]).push({...item,at:new Date().toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"})}); persist(); renderAll(); toast(`Added ${Math.round(item.cal)} cal. ${foodLeftToday().toLocaleString()} left today`); }
+function burnEstimate(){
+  const N=nutri(), pf=state.profile||{}, pts=weightSeries(), lb=pts.length?pts[pts.length-1].lb:(+pf.startWeight||185);
+  const hIn=((+pf.heightFt||0)*12+(+pf.heightIn||0))||71, age=pf.dob?ageFrom(pf.dob):24;
+  const t=todayWD(), wk=t.before?0:(t.after?11:t.w), runDays=PLAN[wk].filter(x=>x.segs), R=runDays.length, wkMiles=runDays.reduce((a,x)=>a+x.miles,0);
+  const rest=10*(lb*0.45359237)+6.25*(hIn*2.54)-5*age+5;
+  const walk=((7-R)*N.steps+R*Math.max(0,N.steps-4000))*(325/10000)/7, run=wkMiles*0.63*lb/7, dig=0.10*N.cal;
+  const burn=rest+walk+run+dig;
+  return {lb,rest,walk,run,dig,burn,deficit:burn-N.cal,wk:wk+1,R,wkMiles};
+}
+let foodQ="", foodPick=-1;
+function renderFoodView(){
+  const el=$("view-food"); if(!el) return;
+  const N=nutri(), dk=toISO(today0()), items=foodDay(dk), T=foodTotals(dk), left=Math.round(N.cal-T.cal), fr=Math.min(1,T.cal/N.cal), pf=Math.min(1,T.p/N.protein);
+  const E=burnEstimate(), loggedPlan=new Set(items.filter(x=>x.plan).map(x=>x.plan));
+  const ring=`<svg class="f-ring" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="84" class="frb"/><circle cx="100" cy="100" r="84" class="frf${left<0?" over":""}" pathLength="1000" stroke-dasharray="${(fr*1000).toFixed(0)} 1000" transform="rotate(-90 100 100)"/></svg>`;
+  const res=foodQ.trim().length>=2?FOOD_DB.map((f,i)=>({f,i})).filter(({f})=>foodQ.toLowerCase().split(/\s+/).filter(Boolean).every(w=>f[0].toLowerCase().includes(w))).slice(0,7):[];
+  el.innerHTML=`<header class="page-h"><h1>Food</h1><p class="muted">${fmtDate(today0(),true)}</p></header>
+    <section class="card f-top">
+      <div class="f-ringwrap">${ring}<div class="f-ringtxt"><b>${Math.abs(left).toLocaleString()}</b><small>${left<0?"calories over":"calories left"}</small></div></div>
+      <div class="f-sum"><div><b>${Math.round(T.cal).toLocaleString()}</b><small>eaten</small></div><div><b>${N.cal.toLocaleString()}</b><small>daily goal</small></div></div>
+      <div class="f-prot"><div class="f-protlab"><span>Protein</span><span><b>${Math.round(T.p)}</b> of ${N.protein} g</span></div><div class="f-bar"><i style="width:${(pf*100).toFixed(0)}%"></i></div></div>
+    </section>
+    <section class="card"><h2 class="f-h">Today’s plan</h2>
+      <ul class="f-plan">${MEAL_PLAN.map(m=>{ const done=loggedPlan.has(m.id); return `<li class="${done?"done":""}"><div class="f-pt"><span>${m.time}</span><b>${m.name}</b></div><div class="f-pd">${m.opts.map((o,oi)=>`<div class="f-opt"><p>${esc(o.n)}</p><span class="f-cal">${o.cal} cal, ${o.p} g protein</span>${done?"":`<button class="btn ${oi===0?"btn-finish":"btn-line"} f-ate" data-plan="${m.id}" data-opt="${oi}">${oi===0?"Ate it":"Had this instead"}</button>`}</div>`).join(m.opts.length>1?'<span class="f-or">or</span>':"")}${done?'<span class="badge ok">✓ Logged</span>':""}</div></li>`; }).join("")}</ul>
+      <p class="muted f-note">Plan total about 2,080 cal and 150 g protein.</p>
+    </section>
+    <section class="card"><h2 class="f-h">Tell it what you ate</h2>
+      <input class="f-search" id="fSearch" placeholder="Search, like pizza or banana" value="${esc(foodQ)}" autocomplete="off">
+      ${res.length?`<ul class="f-res">${res.map(({f,i})=>`<li><button class="f-r" data-fi="${i}" aria-expanded="${foodPick===i}"><span>${esc(f[0])}</span><span class="f-cal">${f[1]} cal</span></button>${foodPick===i?`<div class="f-qty">How much? ${[0.5,1,1.5,2].map(q=>`<button class="chip f-q" data-q="${q}" data-fi="${i}">${q===0.5?"½":q===1.5?"1½":q}<small>${Math.round(f[1]*q)} cal</small></button>`).join("")}</div>`:""}</li>`).join("")}</ul>`:(foodQ.trim().length>=2?`<p class="muted" style="margin:10px 0 0">No match. Add it as a custom food below.</p>`:"")}
+      <details class="fold f-custom"${foodQ&&!res.length?" open":""}><summary>Custom food</summary>
+        <div class="log-grid"><div class="field wide"><label for="fcName">What was it?</label><input id="fcName" value="${foodQ&&!res.length?esc(foodQ):""}"></div><div class="field"><label for="fcCal">Calories</label><input id="fcCal" inputmode="numeric"></div><div class="field"><label for="fcP">Protein (g)</label><input id="fcP" inputmode="numeric" placeholder="optional"></div></div>
+        <div class="row-btns"><button class="btn btn-finish" id="fcAdd">Add</button></div></details>
+    </section>
+    <section class="card"><h2 class="f-h">Eaten today</h2>${items.length?`<ul class="f-log">${items.map((x,i)=>`<li><div><b>${esc(x.n)}</b><small>${esc(x.at||"")}${x.p?`, ${Math.round(x.p)} g protein`:""}</small></div><span class="f-cal">${Math.round(x.cal)} cal</span><button class="btn btn-danger f-del" data-del="${i}">Delete</button></li>`).join("")}</ul>`:`<p class="muted" style="margin:0">Nothing logged yet today.</p>`}</section>
+    <section class="card"><details class="fold" style="margin:0;border:0;padding:0"><summary><span class="f-h" style="font-size:22px">Your numbers</span></summary>
+      <div class="f-est"><div class="f-estrow"><span>Resting</span><b>${Math.round(E.rest).toLocaleString()}</b></div><div class="f-estrow"><span>Walking</span><b>${Math.round(E.walk)}</b></div><div class="f-estrow"><span>Running <small class="muted">(week ${E.wk}: ${E.R} runs, ${E.wkMiles.toFixed(1)} mi)</small></span><b>${Math.round(E.run)}</b></div><div class="f-estrow"><span>Digestion</span><b>${Math.round(E.dig)}</b></div>
+        <div class="f-estrow tot"><span>Estimated daily burn</span><b>${Math.round(E.burn).toLocaleString()}</b></div><div class="f-estrow tot"><span>Estimated ${E.deficit>=0?"deficit":"surplus"} at ${N.cal.toLocaleString()} cal</span><b>${Math.round(Math.abs(E.deficit))}/day</b></div>
+        <p class="muted" style="margin:8px 0 0;font-size:14px">About ${(Math.abs(E.deficit)*7/3500).toFixed(1)} lb ${E.deficit>=0?"down":"up"} per week, using ${E.lb} lb from your weigh-ins. These are rough estimates, so go by your weekly weigh-in trend.</p></div>
+      <div class="log-grid" style="margin-top:14px"><div class="field"><label for="nCal">Daily calories</label><input id="nCal" inputmode="numeric" value="${N.cal}"></div><div class="field"><label for="nP">Protein goal (g)</label><input id="nP" inputmode="numeric" value="${N.protein}"></div><div class="field"><label for="nSteps">Daily steps</label><input id="nSteps" inputmode="numeric" value="${N.steps}"></div></div>
+      <p class="muted" style="margin:8px 0 0;font-size:13px">Running calories come from your plan’s miles for the week, so they update as the plan builds.</p>
+      <div class="row-btns"><button class="btn btn-finish" id="nSave">Save goals</button></div></details></section>`;
+  const sb=$("fSearch");
+  sb.oninput=()=>{ foodQ=sb.value; foodPick=-1; const pos=sb.selectionStart; renderFoodView(); const n=$("fSearch"); n.focus(); try{ n.setSelectionRange(pos,pos); }catch(e){} };
+  el.querySelectorAll(".f-r").forEach(b=>b.onclick=()=>{ foodPick=foodPick===+b.dataset.fi?-1:+b.dataset.fi; renderFoodView(); });
+  el.querySelectorAll(".f-q").forEach(b=>b.onclick=()=>{ const f=FOOD_DB[+b.dataset.fi], q=+b.dataset.q; foodQ=""; foodPick=-1; addFood({n:q===1?f[0]:`${f[0]} ×${q===0.5?"½":q===1.5?"1½":q}`,cal:f[1]*q,p:f[2]*q}); });
+  el.querySelectorAll(".f-ate").forEach(b=>b.onclick=()=>{ const m=MEAL_PLAN.find(x=>x.id===b.dataset.plan), o=m.opts[+b.dataset.opt]; addFood({n:`${m.name}: ${o.n}`,cal:o.cal,p:o.p,plan:m.id}); });
+  $("fcAdd").onclick=()=>{ const n=$("fcName").value.trim(), c=parseFloat($("fcCal").value), pr=parseFloat($("fcP").value)||0; if(!n||isNaN(c)||c<0||c>5000){ toast("Add a name and the calories"); return; } foodQ=""; addFood({n,cal:Math.round(c),p:Math.round(pr)}); };
+  el.querySelectorAll(".f-del").forEach(b=>armDelete(b,()=>{ const it=foodDay(dk); it.splice(+b.dataset.del,1); persist(); renderAll(); toast("Removed"); }));
+  $("nSave").onclick=()=>{ const v=id=>parseFloat($(id).value); const n={cal:v("nCal"),protein:v("nP"),steps:v("nSteps")};
+    if(!(n.cal>=1200&&n.cal<=5000)||!(n.protein>=0&&n.protein<=400)||!(n.steps>=0&&n.steps<=60000)){ toast("Check the numbers and try again"); return; }
+    state.nutri=n; persist(); renderAll(); toast("Goals saved"); };
+}
+
 /* ---------- Spoken countdown ---------- */
 function countOut(s,el,rem){
   if(s.ready||!$("tVoice").checked||rem<=0||rem>=s.sec||el<4) return;
@@ -1803,7 +1947,7 @@ function renderMeView(){
   el.querySelectorAll("[data-wd]").forEach(b=>armDelete(b,()=>{ delete state.weights["w"+b.dataset.wd]; persist(); renderAll(); toast("Weigh-in deleted"); }));
 }
 
-function renderAll(){ renderTodayView(); renderPlanView(); renderAbsView(); renderProgressView(); renderMeView(); }
+function renderAll(){ renderTodayView(); renderPlanView(); renderAbsView(); renderProgressView(); renderMeView(); renderFoodView(); }
 renderAll();
 showView(location.hash.slice(1));
 
